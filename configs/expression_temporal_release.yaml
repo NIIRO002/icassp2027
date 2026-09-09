@@ -1,0 +1,35 @@
+release_schema: expression_temporal_release
+model:
+  controller_checkpoint: checkpoints/expression_temporal_controller_seed2027.pth
+  controller_sha256: 94ef6810d31efababbc2b5a3c78ce4148e1b569ed1708603c31e5775dc1f7807
+  controller_step: 6000
+  training_seed: 2027
+  temporal_support: expression_specific
+  trainable_parameters_during_final_training: 272256
+  controller_parameters_in_artifact: 383680
+  frozen_seed_vc_backbone_parameters: 196376960
+  frozen_representation_parameters_training_only: 236355
+backbone:
+  config: configs/presets/config_dit_mel_seed_uvit_whisper_base_f0_44k.yml
+  seed_vc_repository: Plachta/Seed-VC
+  seed_vc_checkpoint: DiT_seed_v2_uvit_whisper_base_f0_44k_bigvgan_pruned_ft_ema_v2.pth
+  whisper: openai/whisper-small
+  rmvpe_repository: lj1995/VoiceConversionWebUI
+  rmvpe_file: rmvpe.pt
+  campplus_file: campplus_cn_common.bin
+  vocoder: nvidia/bigvgan_v2_44khz_128band_512x
+  output_sample_rate_hz: 44100
+inference:
+  seed: 2027
+  diffusion_steps: 30
+  cfg: 0.7
+  f0_condition: true
+  auto_f0_adjust: false
+  fp16: true
+controls:
+  breathiness_range: [-1.0, 1.0]
+  intensity_range: [-1.0, 1.0]
+  vibrato_range: [0.0, 1.0]
+  vibrato_rate_hz: 5.0
+  vibrato_depth_at_one_cent: 60.0
+  vibrato_checkpoint: checkpoints/frozen_formula_vibrato_f0_adapter.pth

@@ -1,0 +1,38 @@
+# general things to ignore
+.DS_Store
+build/
+build_contrib/
+dist/
+.cache/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+
+# IDE
+.vscode/
+.idea/
+
+# misc
+checkpoints/
+test_waves/
+reconstructed/
+.python-version
+ruff.log
+/configs/inuse/
+runs/
+/garbages/
+/flagged/
+/experimental/
+/external/SaMoye-SVC/
+/external/SaMoye-SVC-main/
+
+# Research datasets are local-only. Keep placement instructions tracked.
+/data/datasets/raw/*
+!/data/datasets/raw/README.md
+
+# Human-listening responses may contain participant identifiers. Keep raw CSVs local.
+/data/experiments/icassp2027/**/responses/*.csv
+/data/experiments/icassp2027/**/pilot_responses/*.csv
